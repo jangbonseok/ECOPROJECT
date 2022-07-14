@@ -1,0 +1,29 @@
+/* reset */
+* {margin: 0; padding: 0; font-weight: bold; color: #fff;}
+a {text-decoration: none;}
+li {list-style: none;}
+.clearfix::before, .clearfix::after {display: block; content: ''; clear: both;}
+
+/* layout */
+#wrap {width: 1000px; height: 1000px; margin: 0 auto; background: #ccc;}
+#header { background: #555; height: 105px; display: block;}
+#banner {}
+#cont1 {}
+#cont2 {}
+#footer {}
+
+/* header */
+#header h1 {padding: 20px; float: left; width: 100px; text-align: center;}
+#header .nav {float: right;}
+#header .nav ul {}
+#header .nav li {float: left; display: inline;}
+#header .nav li a {display: block; padding: 40px 20px;}
+
+/* banner */
+#banner {display: block;}
+#banner img {width: 100%; }
+
+/* content1 */
+#cont1 {margin-top: 20px;}
+#cont1 .notice1{float: left; width: 49%; margin-right: 2%; height: 300px; background: #555}
+#cont1 .notice2{float: left; width: 49%; margin-right: 0px; height: 300px; background: #666}

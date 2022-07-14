@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Closet_manager</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="header" class="clearfix">
+            <div class="logo"><h1>logo</h1></div>
+               <div class="nav" class="clearfix">
+                <ul class="clearfix">
+                    <li><a href="#">MENU-1</a>
+                        <ul class="submenu">
+                            <li><a href="#">subMenu-1</a></li>
+                            <li><a href="#">subMenu-2</a></li>
+                            <li><a href="#">subMenu-3</a></li>
+                            <li><a href="#">subMenu-4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">MENU-2</a>
+                        <ul class="submenu">
+                            <li><a href="#">subMenu-1</a></li>
+                            <li><a href="#">subMenu-2</a></li>
+                            <li><a href="#">subMenu-3</a></li>
+                            <li><a href="#">subMenu-4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">MENU-3</a>
+                        <ul class="submenu">
+                            <li><a href="#">subMenu-1</a></li>
+                            <li><a href="#">subMenu-2</a></li>
+                            <li><a href="#">subMenu-3</a></li>
+                            <li><a href="#">subMenu-4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">MENU-4</a>
+                        <ul class="submenu">
+                            <li><a href="#">subMenu-1</a></li>
+                            <li><a href="#">subMenu-2</a></li>
+                            <li><a href="#">subMenu-3</a></li>
+                            <li><a href="#">subMenu-4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="banner" class="clearfix">
+            <div class="slideList">
+                <div class="slideImg">
+                   <h2 class="std">Closet_manager</h2>
+                <img src="images/ban1.jpg" alt="이미지1">
+                </div>
+                    
+                <div class="slideImg" >
+                    <h2>Closet_manager2</h2>
+                <img src="images/ban2.jpg" alt="이미지2">
+                </div>
+                    
+                <div class="slideImg">
+                    <h2>Closet_manager3</h2>
+                <img src="images/ban3.jpg" alt="이미지3">
+                </div>
+            </div>
+        </div>
+        <div id="contents" class="clearfix">
+            <div class="cont1">
+                <div class="tab-menu">
+                    <div class="tab-btn">
+                        <ul class="clearfix">
+                            <li class="active1"><a href="#">notice1</a></li>
+                            <li><a href="#">notice2</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-cont">
+                        <div>
+                            1.Tab Menu DESC<br>1.Tab Menu DESC<br>1.Tab Menu DESC<br>
+                        </div>
+                        <div>
+                            2.Tab Menu DESC<br>2.Tab Menu DESC<br>2.Tab Menu DESC<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cont2"><h3>contents2</h3></div>
+            <div class="cont3"><h3>contents3</h3></div>
+        </div>
+        
+        <div id="footer" class="clearfix">
+            <div class="foot1"><h3>logo</h3></div>
+            <div class="foot2"><h3>copyright</h3></div>
+            <div class="foot3"><h3>sns</h3></div>
+        </div>
+        
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        var img = $(".slideImg");
+        $("div.nav > ul > li").mouseover(function(){
+           $(this).find("ul.submenu").stop().slideDown(200);
+           $("#banner div.slideList").css("position","static");
+            img.css("position","static");
+            $("div.slideImg > h2").css("display","none");
+            
+           
+        });
+        $("div.nav > ul > li").mouseout(function(){
+            $(this).find("ul.submenu").stop().slideUp(200);
+            img.css("display","table");
+             $("#banner div.slideList").css("position","relative");
+            $("div.slideImg > h2").css("display","block");
+            img.css("position","relative");
+            
+        });
+        
+        var tabBtn = $("div.tab-btn > ul > li");
+        var tabCont = $("div.tab-cont > div");
+        
+        tabCont.hide().eq(0).show();
+        tabBtn.eq(0).css("background","#666");
+        
+        tabBtn.click(function(e){
+            e.preventDefault();
+            var target = $(this);
+            var index = target.index();
+            tabBtn.removeClass("active1");
+            target.addClass("active1");
+            
+            tabBtn.css("background","#777");
+            tabBtn.eq(index).css("background","#666");
+            
+            tabCont.css("display","none");
+            tabCont.eq(index).css("display","block");
+                     });
+        
+        var currentIndex = 0;
+         
+        setInterval(function(){
+            if(currentIndex < 2){
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            var slidePostion = currentIndex * (-400)+"px";
+            $(".slideList").animate({top:slidePostion},(400)+"px");
+        },3000); 
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
